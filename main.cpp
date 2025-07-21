@@ -19,7 +19,26 @@ void add_record(){
     ind++;
 }
 void modify_record(){
-    cout<<"Write Code"<<endl;
+    string usn;
+    cout<<"Please Enter the USN of the student you want to Modify."<<endl;
+    cin>>usn;
+    bool flag=false;
+    for(int i=0;i<ind;i++){
+        if(usn == datas[i].st_roll){
+            cout<<"Record Found"<<endl;
+            cout<<"Enter Name of the student"<<endl;
+            cin>>datas[i].st_name;
+            cout<<"Enter Branch"<<endl;
+            cin>>datas[i].branch;
+            flag=true;
+        }
+    }
+    if(flag){
+        cout<<"Thanks for the details your data has been Updated."<<endl;
+    }
+    else{
+        cout<<"Record Not Found"<<endl;
+    }
     cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"<<endl;
 }
 void delete_record(){
@@ -70,6 +89,7 @@ int main() {
                 break;
             case 5:
                 flag=false;
+                cout<<"Kudos!!";
                 break;
         }
     }
