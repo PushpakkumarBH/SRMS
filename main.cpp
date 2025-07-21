@@ -42,17 +42,42 @@ void modify_record(){
     cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"<<endl;
 }
 void delete_record(){
-    cout<<"Write code"<<endl;
+    string usn;
+    cout<<"Please Enter the USN of the student you want to Delete."<<endl;
+    cin>>usn;
+    bool flag=false;
+    for(int i=0;i<ind;i++){
+        if(usn == datas[i].st_roll){
+            cout<<"Record Found"<<endl;
+            flag=true;
+            for(int j=i;j<ind;j++){
+                datas[j]=datas[j+1];
+            }
+            ind--;
+        }
+    }
+    if(flag){
+        cout<<"Record Deleted Sucessfully."<<endl;
+    }
+    else{
+        cout<<"Record Not Found"<<endl;
+    }
     cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"<<endl;
 }
 void print_record(){
-    for(int i=0;i<ind;i++){
-        cout<<"Student "<<i+1<<" details"<<endl;
-        cout<<"Name of Student "<<datas[i].st_name<<endl;
-        cout<<"Student Universal Serial Number (USN) "<<datas[i].st_roll<<endl;
-        cout<<"Branch "<<datas[i].branch<<endl;
-        cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"<<endl;
+    if(ind>0){
+        for(int i=0;i<ind;i++){
+            cout<<"Student "<<i+1<<" details"<<endl;
+            cout<<"Name of Student "<<datas[i].st_name<<endl;
+            cout<<"Student Universal Serial Number (USN) "<<datas[i].st_roll<<endl;
+            cout<<"Branch "<<datas[i].branch<<endl;
+            cout<<"_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"<<endl;
+        }
     }
+    else{
+        cout<<"There are no Records to print"<<endl;
+    }
+
 }
 int main() {
     int x;
@@ -89,7 +114,7 @@ int main() {
                 break;
             case 5:
                 flag=false;
-                cout<<"Kudos!!";
+                cout<<"Adios Amigo's Bye..!!";
                 break;
         }
     }
